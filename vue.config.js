@@ -6,6 +6,14 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin"); //把分包文件添加道Html模板中
 // const HardSourceWebpackPlugin = require("hard-source-webpack-plugin"); //缓存 提升二次打包速度
 const env = process.env.NODE_ENV;
+
+// 获取命令行变量
+const npmConfigArg = JSON.parse(process.env.npm_config_argv);
+console.log('npm命令信息：'+process.env.npm_config_argv);
+const original = npmConfigArg.original.slice(1);
+const UNICOM_SERVER_ENV = original[1] ? original[1].replace(/--/g, '') : '';
+console.log('npm命令-目标服务器环境：'+UNICOM_SERVER_ENV);
+
 const pluginFun = env => {
 	let plugin = [
 		new HappyPack({
@@ -36,7 +44,11 @@ const pluginFun = env => {
 			manifest: require("./build/library/library-manifest.json"),
 		});
 		plugin.push(dll);
-	}
+    }
+    let npmConfigOrder  = new webpack.DefinePlugin({
+        'process.env.UNICOM_SERVER_ENV':JSON.stringify(UNICOM_SERVER_ENV)
+    });
+    plugin.push(npmConfigOrder);
 	return plugin;
 };
 
@@ -46,7 +58,7 @@ module.exports = {
 	outputDir: "dist",
 	lintOnSave: "error",
 	devServer: {
-		host: "localhost", //要设置当前访问的ip 否则失效
+		// host: "localhost", //要设置当前访问的ip 否则失效
 		port: 8080,
 		open: true, //浏览器自动打开页面,
 		proxy: {
