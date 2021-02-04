@@ -5,7 +5,7 @@ if('pro' === process.env.UNICOM_SERVER_ENV){
     //生产环境
     console.warn('当前生产环境');
     baseUrl = `https://m.client.10010.com`;
-}else if('prepub' === process.env.UNICOM_SERVER_ENV){
+}else if('huidu' === process.env.UNICOM_SERVER_ENV){
     //灰度环境
     console.warn('当前灰度环境');
     baseUrl = `https://m.client.10010.com`;
