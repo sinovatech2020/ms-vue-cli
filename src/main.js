@@ -12,7 +12,10 @@ import "./httpClient/urlconfig";
 // 引入rem
 // import rem from './libs/js/public';
 // rem(window,1242);
-
+// PV日志
+// import pvLog from "./libs/js/pvLog";
+// Vue.use(pvLog);
+// 组件内部调用 Vue.$pvLog({titleName:'测试'})
 Vue.config.productionTip = false;
 
 new Vue({
