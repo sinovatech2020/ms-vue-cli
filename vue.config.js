@@ -54,7 +54,7 @@ const pluginFun = env => {
 
 module.exports = {
 	publicPath: env === "production" ? "./" : "/",
-	productionSourceMap: true,
+	productionSourceMap: UNICOM_SERVER_ENV==='pro'?false:true,
 	outputDir: "dist",
 	lintOnSave: "error",
 	devServer: {

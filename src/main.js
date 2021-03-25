@@ -9,6 +9,9 @@ Vue.prototype._ = _;
 import "./libs/css/rest.css";
 // 请求区分域名
 import "./httpClient/urlconfig";
+// 全局插入
+import mixins from "./mixins/mixins.js";
+Vue.mixin(mixins);
 // 引入rem
 // import rem from './libs/js/public';
 // rem(window,1242);
