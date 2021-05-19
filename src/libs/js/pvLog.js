@@ -42,7 +42,7 @@ export default{
         data[`uptime`] = new Date() || Date.now();
         data[`version`] = getCookie(`c_version`);
         data[`clientType`] = isInApp()?isAndroid()?'Android':'IOS':'';
-        data[`refer`] = window.location.href;
+        data[`urlApp`] = window.location.href;
         data = {
             ...data,
             ...item
