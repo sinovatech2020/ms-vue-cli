@@ -56,3 +56,30 @@ export default{
         document.getElementsByTagName(`body`)[0].appendChild(newImg);
     }
 }
+
+// 入口编码 transId
+// 入口位置名称   actCode
+// 类型   upType
+// 菜单ID menuId
+// title名称  titleName
+// 用户号码 mobile
+// 省份编码 provId
+// 地市编码 cityId
+// 点击时间 uptime
+// 客户端版本    version
+// 客户端类型    clientType
+// 目标URL    urlApp
+// 来源url    refer
+// 用户筛选的省份编码    choosepro
+// 用户筛选的地市编码    choosecity
+// 停留时长（秒）  staytimes
+// 页面耗时，渲染时长    duration
+// 渠道编码 channel
+// 触点编码 touchcode
+// 业务编码 bizcode
+// 本异网标识    diffnet
+// 是否登入 islogin
+// 备注1  remark1
+// 备注2  remark2
+// 备注3  remark3
+// 备注4  remark4

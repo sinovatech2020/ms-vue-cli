@@ -7,12 +7,19 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run serve --目标环境
+```
+
+### Compiles and hot-reloads for development
+
+```
+npm run dll
 ```
 
 ### Compiles and minifies for production
+
 ```
-npm run build
+npm run build --目标环境
 ```
 
 ### Lints and fixes files
