@@ -28,6 +28,28 @@ import Vue from "vue";
         else
         return '';
     }
+    /**
+     * 字符串转Base64编码
+     * @param {String} str 
+     * @returns 
+     */
+    function encode(str){
+        // 对字符串进行编码
+        var encode = encodeURI(str);
+        // 对编码的字符串转化base64
+        var base64 = btoa(encode);
+        return base64;
+    }
+    /**
+     * 截取url参数
+     * @param {String} name 
+     * @returns 
+     */
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
 export default{
     install(){
         Vue.prototype.$pvLog = this.pvLog;
@@ -42,7 +64,9 @@ export default{
         data[`uptime`] = new Date() || Date.now();
         data[`version`] = getCookie(`c_version`);
         data[`clientType`] = isInApp()?isAndroid()?'Android':'IOS':'';
-        data[`urlApp`] = window.location.href;
+        data[`urlApp`] = encode(window.location.href);
+        data[`baseConvert`] = 'YES';//urlApp转译base64，此参数必须传YES；
+        data[`remark4`] = getQueryString('channel');
         data = {
             ...data,
             ...item

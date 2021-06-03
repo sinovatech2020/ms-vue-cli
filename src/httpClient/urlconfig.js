@@ -1,6 +1,6 @@
 let baseUrl;
 import Vue from "vue";
-import VConsole from "vconsole";
+// import VConsole from "vconsole";
 if('pro' === process.env.UNICOM_SERVER_ENV){
     //生产环境
     console.warn('当前生产环境');
@@ -25,6 +25,7 @@ if('pro' === process.env.UNICOM_SERVER_ENV){
 // 移动端调试
 if('pro' !== process.env.UNICOM_SERVER_ENV){
     if(navigator.userAgent.indexOf("unicom") > -1){
+        const VConsole = require('vconsole');
         new VConsole();
     }
     Vue.config.devtools = false;
